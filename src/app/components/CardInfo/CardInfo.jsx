@@ -1,5 +1,4 @@
 import styles from './CardInfo.module.css';
-import Image from 'next/image';
 
 export default function CardInfo(props) {
 
@@ -11,7 +10,7 @@ export default function CardInfo(props) {
   return (
     <div className={styles.card_info}>
       <h3>Informação sobre o {props.animalType === 'dog' ? nameAnimalDog : nameAnimalCat}</h3>
-      <p>{props.animalInfo === 'dog' ? infoDog : infoCat}</p>
+      <p>{props.animalType === 'dog' ? infoDog : infoCat}</p>
     </div>
   );
 }
