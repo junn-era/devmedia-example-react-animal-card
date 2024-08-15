@@ -4,6 +4,8 @@ import dogImage from '../../public/cachorro.jpg';
 import catImage from '../../public/gato.jpg';
 import Image from "next/image";
 import styles from "./page.module.css";
+import CardAnimal from './components/CardAnimal';
+import CardInfo from './components/CardInfo/CardInfo';
 
 export default function Home() {
 
@@ -33,7 +35,6 @@ export default function Home() {
 
   return (
     <div className={styles.main_container}>
-
       {/* Top Component */}
       <header>
         <h1>Projeto Props + useState</h1>
@@ -41,23 +42,10 @@ export default function Home() {
         <button onClick={changeState}>Mudar Animal</button>
       </header>
 
-      {/* CardAnimal Component */}
       <main>
-
-        <div className={styles.card_animal}>
-          <Image src={animalImage} alt='animal' />
-        </div>
-
-        {/* CardInfo Component */}
-        <div className={styles.card_info}>
-          <h3>Informação sobre o {animalType}</h3>
-          <p>{animalInfo}</p>
-        </div>
-
-
+        <CardAnimal animalImage={animalImage} />
+        <CardInfo animalType={animalType} animalInfo={animalInfo} />
       </main>
-
-
     </div>
   );
 }
