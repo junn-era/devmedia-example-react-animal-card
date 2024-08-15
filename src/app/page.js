@@ -9,10 +9,6 @@ import CardInfo from './components/CardInfo/CardInfo';
 
 export default function Home() {
 
-  let animalImage = "";
-  let animalInfo = "";
-  let animalType = "Dog";
-
   const [typeCardComponent, setTypeCardComponent] = useState("dog");
 
   const changeState = () => {
@@ -22,16 +18,6 @@ export default function Home() {
       setTypeCardComponent('dog');
     }
   };
-
-  if (typeCardComponent === 'dog') {
-    animalImage = dogImage;
-    animalInfo = 'É um mamífero carnívoro da familia dos canídeos.';
-    animalType = 'Cachorro';
-  } else {
-    animalImage = catImage;
-    animalInfo = 'É um mamífero carnívoro da familia dos felídeos';
-    animalType = 'Gato';
-  }
 
   return (
     <div className={styles.main_container}>
@@ -43,8 +29,8 @@ export default function Home() {
       </header>
 
       <main>
-        <CardAnimal animalImage={animalImage} />
-        <CardInfo animalType={animalType} animalInfo={animalInfo} />
+        <CardAnimal animalType={typeCardComponent} />
+        <CardInfo animalType={typeCardComponent} />
       </main>
     </div>
   );
